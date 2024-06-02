@@ -38,7 +38,7 @@ if (isset($_GET['msg'])) {
         <?php if ($message) : ?>
             <p style="color: green;"><?php echo htmlspecialchars($message); ?></p>
         <?php endif; ?>
-        <form action="update_profile.php" method="POST">
+        <form action="update_profile.php" method="POST" enctype="multipart/form-data">
             <label>Username: </label>
             <input type="text" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" readonly><br><br>
             <label>First Name: </label>
@@ -53,6 +53,11 @@ if (isset($_GET['msg'])) {
             <input type="text" name="address" value="<?php echo htmlspecialchars($user['address']); ?>"><br><br>
             <label>Gender: </label>
             <input type="text" name="gender" value="<?php echo htmlspecialchars($user['gender']); ?>"><br><br>
+            <label>Profile Picture: </label>
+            <input type="file" name="profile_picture"><br><br>
+            <?php if ($user['profile_picture']) : ?>
+                <img src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture" width="150"><br><br>
+            <?php endif; ?>
             <input type="submit" value="Update Profile">
         </form>
         <h2>Change Password</h2>
@@ -66,3 +71,4 @@ if (isset($_GET['msg'])) {
     </div>
 </body>
 </html>
+

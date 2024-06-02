@@ -6,7 +6,6 @@ if (isset($_POST['submit'])) {
     $username = $_POST['user'];
     $password = $_POST['pass'];
 
-    // Προστασία από SQL Injection
     $username = mysqli_real_escape_string($conn, $username);
     $password = mysqli_real_escape_string($conn, $password);
 
