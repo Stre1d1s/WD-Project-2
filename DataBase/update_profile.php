@@ -16,7 +16,6 @@ if (isset($_POST['username'])) {
     $address = $_POST['address'];
     $gender = $_POST['gender'];
 
-    // Προστασία από SQL Injection
     $first_name = mysqli_real_escape_string($conn, $first_name);
     $last_name = mysqli_real_escape_string($conn, $last_name);
     $email = mysqli_real_escape_string($conn, $email);
